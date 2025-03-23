@@ -1,0 +1,179 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://cf.ltkcdn.net/garden/images/orig/304351-1600x1066-gardening-basics.jpg') no-repeat center center fixed; /* Set the background image for the entire webpage */
+    background-size: cover; /* Ensure the background image covers the entire page */
+}
+
+header {
+    color: rgb(223, 26, 26);
+    padding: 2rem; /* Increase padding to accommodate title */
+    text-align: center;
+    position: right;
+    height: 100px; /* Increase the height as needed */
+    background: none; /* Remove background color */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem; /* Adjust font size as needed */
+    color: rgb(225, 7, 7);
+}
+
+nav {
+    margin: 20px 0;
+    background-color: transparent; /* Make the background transparent */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: right;
+}
+
+nav ul li {
+    margin-bottom: 10px; /* Add space between items */
+}
+
+nav ul li a {
+    display: block; /* Make links block elements */
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1.5rem; /* Make product names bigger */
+    padding: 10px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    width: 200px; /* Fixed width for the links */
+    text-align: center;
+}
+
+nav ul li a:hover {
+    background-color: #4aac4f;
+    text-decoration: underline;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+main {
+    padding: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 40vh; /* Ensure the main section covers the full viewport height */
+    background: none; /* Remove the background image from the main section */
+}
+
+main h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: rgb(23, 22, 22); /* Adjust text color for better visibility */
+}
+
+main p {
+    font-size: 1.2rem;
+    color: rgb(37, 36, 36); /* Adjust text color for better visibility */
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center;
+    gap: 20px;
+}
+
+.product-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 100%; /* Make the width responsive */
+    max-width: 300px; /* Set a maximum width */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-item h3 {
+    margin: 1rem 0;
+}
+
+.add-to-cart {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-to-cart:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background: #35424a;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    nav ul li a {
+        width: 100%;
+    }
+
+    .product-item {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 1rem; /* Adjust padding for smaller screens */
+        height: 200px; /* Adjust the height for smaller screens */
+    }
+
+    nav ul li a {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    main h2 {
+        font-size: 1.5rem;
+    }
+
+    main p {
+        font-size: 1rem;
+    }
+
+    .add-to-cart {
+        padding: 8px 16px;
+    }
+}

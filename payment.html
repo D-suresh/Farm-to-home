@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Agro Products Web App</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        header {
+            background: #50b3a2;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        main {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+        }
+        .payment-option {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .payment-option h3 {
+            margin-top: 0;
+        }
+        .qr-code {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .qr-code img {
+            max-width: 200px;
+            height: auto;
+            border: 2px solid red; /* Add border for debugging */
+        }
+        .upi-id {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+        .upi-id span {
+            font-weight: bold;
+            color: #50b3a2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Payment</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h2>Choose Payment Method</h2>
+            <div class="payment-option">
+                <h3>UPI Payment</h3>
+                <div class="qr-code">
+                    <img src="c:\Users\sures\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\37693CFC748049E45D87B8C7D8B9AACD\WhatsApp Image 2025-03-23 at 12.03.42_f8b73aed.jpg" alt="PhonePe QR Code">
+                    <p>Scan the QR code using any UPI app (e.g., PhonePe, Google Pay, Paytm) to complete your payment.</p>
+                </div>
+                <div class="upi-id">
+                    <p>Or send payment directly to UPI ID: <span>sunny7805@ybl</span></p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

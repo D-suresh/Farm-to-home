@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meat Details</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        header {
+            background: #50b3a2;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        main {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+        }
+        .quantity-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .quantity-option img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .quantity-option label {
+            font-size: 18px;
+        }
+        button {
+            background: #50b3a2;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #45a089;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Meat Details</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="meat-products.html">Meat Products</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2 id="product-title">Select Quantity</h2>
+        <form id="quantity-form">
+            <!-- Quantity options will be dynamically inserted here -->
+            <div id="quantity-options"></div>
+            <button type="submit">Add to Cart</button>
+        </form>
+        <p id="confirmation-message" style="color: green; display: none;">Item added to cart!</p>
+    </main>
+    <script>
+        // Product data with quantities and prices
+        const products = {
+            "Naatu kodi punju": [
+                { quantity: "500-Grms", price: 450 },
+                { quantity: "1000-Grms", price: 900 }
+            ],
+            "Naatu kodi petta": [
+                { quantity: "500-Grms", price: 400 },
+                { quantity: "1000-Grms", price: 800 }
+            ],
+            "Naatu Eggs": [
+                { quantity: "6 Eggs", price: 120 },
+                { quantity: "12 Eggs", price: 240 }
+            ],
+            "kadaknath": [
+                { quantity: "500-Grms", price: 600 },
+                { quantity: "1000-Grms", price: 1200 }
+            ],
+            "Mutton": [
+                { quantity: "500-Grms", price: 500 },
+                { quantity: "1000-Grms", price: 1000 }
+            ]
+        };
+
+        // Get the product name from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('product');
+
+        // Set the product title
+        document.getElementById('product-title').textContent = `Select Quantity for ${productName}`;
+
+        // Dynamically generate quantity options
+        const quantityOptions = document.getElementById('quantity-options');
+        if (productName && products[productName]) {
+            products[productName].forEach(option => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quantity-option';
+                optionDiv.innerHTML = `
+                    <img src="https://png.pngtree.com/png-clipart/20230923/original/pngtree-realistic-transparent-clear-milk-bottle-advertising-template-cold-pack-splash-vector-png-image_12662880.png" alt="${option.quantity}">
+                    <label>
+                        <input type="radio" name="quantity" value="${option.quantity}" data-price="${option.price}"> ${option.quantity} - ${option.price}rs
+                    </label>
+                `;
+                quantityOptions.appendChild(optionDiv);
+            });
+        } else {
+            quantityOptions.innerHTML = "<p>Product not found.</p>";
+        }
+
+        // Handle form submission
+        document.getElementById('quantity-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const selectedOption = document.querySelector('input[name="quantity"]:checked');
+            if (!selectedOption) {
+                alert("Please select a quantity.");
+                return;
+            }
+            const quantity = selectedOption.value;
+            const price = selectedOption.getAttribute('data-price');
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const existingItem = cartItems.find(item => item.name === productName && item.quantity === quantity);
+            if (existingItem) {
+                existingItem.totalPrice = parseInt(existingItem.totalPrice) + parseInt(price);
+            } else {
+                cartItems.push({ name: productName, quantity, price, totalPrice: price });
+            }
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            const confirmationMessage = document.getElementById('confirmation-message');
+            confirmationMessage.style.display = 'block';
+            setTimeout(() => {
+                confirmationMessage.style.display = 'none';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Details</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        header {
+            background: #50b3a2;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        main {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+        }
+        .quantity-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .quantity-option img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .quantity-option label {
+            font-size: 18px;
+        }
+        button {
+            background: #50b3a2;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #45a089;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Agro Details</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="agro-products.html">Agro Products</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2>Select Quantity</h2>
+        <form id="quantity-form">
+            <div class="quantity-option">
+                <img src="https://png.pngtree.com/png-clipart/20230923/original/pngtree-realistic-transparent-clear-milk-bottle-advertising-template-cold-pack-splash-vector-png-image_12662880.png" alt="250ml">
+                <label>
+                    <input type="radio" name="quantity" value="10 kg" data-price="500"> 10 kgs - 500rs
+                </label>
+            </div>
+            <div class="quantity-option">
+                <img src="https://png.pngtree.com/png-clipart/20230923/original/pngtree-realistic-transparent-clear-milk-bottle-advertising-template-cold-pack-splash-vector-png-image_12662880.png" alt="500ml">
+                <label>
+                    <input type="radio" name="quantity" value="25 kg" data-price="1000"> 25 kgs - 1000rs
+                </label>
+            </div>
+            <button type="submit">Add to Cart</button>
+        </form>
+        
+        <p id="confirmation-message" style="color: green; display: none;">Item added to cart!</p>
+    </main>
+    <script>
+        document.getElementById('quantity-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const selectedOption = document.querySelector('input[name="quantity"]:checked');
+            const quantity = selectedOption.value;
+            const price = selectedOption.getAttribute('data-price');
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const existingItem = cartItems.find(item => item.name === 'Milk' && item.quantity === quantity);
+            if (existingItem) {
+                existingItem.totalPrice = parseInt(existingItem.totalPrice) + parseInt(price);
+            } else {
+                cartItems.push({ name: 'Meat', quantity, price, totalPrice: price });
+            }
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            const confirmationMessage = document.getElementById('confirmation-message');
+            confirmationMessage.style.display = 'block';
+            setTimeout(() => {
+                confirmationMessage.style.display = 'none';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

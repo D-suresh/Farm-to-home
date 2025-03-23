@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meat Products</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product-item {
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: calc(33.333% - 40px);
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-item h3 {
+            margin: 10px 0;
+        }
+        .product-item button {
+            background: #50b3a2;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .product-item button:hover {
+            background: #45a089;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Meat Products</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Meat Products</h2>
+        <div class="product-list">
+            <div class="product-item">
+                <img src="https://5.imimg.com/data5/QA/UK/ZP/SELLER-83329964/male-natu-kodi-country-chicken.jpg" alt="Chicken">
+                <h3>Naatu kodi punju</h3>
+                <a href="meat-details.html?product=Naatu kodi punju"><button class="select-product">Naatu kodi punju</button></a>
+            </div>
+            <div class="product-item">
+                <img src="https://dms.mydukaan.io/original/jpeg/2894169/94774e29-912c-4940-96eb-a95fbe9536d5/1609647772170.jpeg" alt="Chicken">
+                <h3>Naatu kodi petta</h3>
+                <a href="meat-details.html?product=Naatu kodi petta"><button class="select-product">Naatu kodi petta</button></a>
+            </div>
+            <div class="product-item">
+                <img src="https://png.pngtree.com/thumb_back/fh260/background/20231221/pngtree-food-eggs-fresh-eggs-nutrition-ingredients-photography-pictures-photo-image_15551625.png" alt="Naatu Eggs">
+                <h3>Naatu Eggs</h3>
+                <a href="meat-details.html?product=Naatu Eggs"><button class="select-product">Naatu Eggs</button></a>
+            </div>
+            <div class="product-item">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2023/8/337071018/BB/VR/EX/110962139/kadaknath.jpg" alt="Chicken">
+                <h3>kadak naadh</h3>
+                <a href="meat-details.html?product=kadaknath"><button class="select-product">kadaknath</button></a>
+            </div>
+            <div class="product-item">
+                <img src="https://i.pinimg.com/736x/8f/85/89/8f85891270b8a6cdce085d79429cebbb.jpg" alt="Mutton">
+                <h3>Mutton</h3>
+                <a href="meat-details.html?product=Mutton"><button class="select-product">Mutton</button></a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "agro-products-webapp",
+  "version": "1.0.0",
+  "description": "A web application for showcasing various agro products including milk, meat, and other agricultural products.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step not defined yet.'"
+  },
+  "keywords": [
+    "agro",
+    "products",
+    "web",
+    "application"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
